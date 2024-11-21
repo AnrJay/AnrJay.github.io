@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>春天的花朵动画</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #e0f7fa;
+            overflow: hidden;
+        }
+        #flower {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+            border-radius: 50%;
+            transition: transform 0.5s;
+        }
+        #message {
+            position: absolute;
+            top: 20px;
+            font-size: 24px;
+            color: #2e7d32;
+        }
+    </style>
+</head>
+<body>
+
+<div id="message">点击花朵</div>
+<div id="flower"></div>
+
+<script>
+    const flower = document.getElementById('flower');
+    const message = document.getElementById('message');
+
+    // 初始化花朵位置
+    flower.style.left = Math.random() * window.innerWidth + 'px';
+    flower.style.top = Math.random() * window.innerHeight + 'px';
+
+    // 鼠标点击事件
+    flower.addEventListener('click', () => {
+        // 每次点击时，花朵随机移动到新的位置
+        flower.style.left = Math.random() * window.innerWidth + 'px';
+        flower.style.top = Math.random() * window.innerHeight + 'px';
+    });
+
+    // 鼠标悬停事件
+    flower.addEventListener('mouseover', () => {
+        flower.style.transform = 'scale(1.2)'; // 放大花朵
+    });
+
+    flower.addEventListener('mouseout', () => {
+        flower.style.transform = 'scale(1)'; // 恢复原大小
+    });
+</script>
+
+</body>
+</html>
